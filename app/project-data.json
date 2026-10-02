@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "name": "Atlas",
+      "owner": "Mona",
+      "status": "On track",
+      "statusKey": "on-track",
+      "recentActivity": "Updated the onboarding flow yesterday",
+      "priority": "High",
+      "summary": "Make it easier for new contributors to find their first task and get started."
+    },
+    {
+      "name": "Beacon",
+      "owner": "Ravi",
+      "status": "Active",
+      "statusKey": "active",
+      "recentActivity": "Submitted the accessibility audit on Monday",
+      "priority": "Medium",
+      "summary": "Improve the accessibility and clarity of the team's shared dashboard."
+    },
+    {
+      "name": "Compass",
+      "owner": "Leah",
+      "status": "Planned",
+      "statusKey": "planned",
+      "recentActivity": "Shared the initial roadmap this week",
+      "priority": "Low",
+      "summary": "Align upcoming work around a simple, reliable project planning experience."
+    }
+  ]
+}

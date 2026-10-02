@@ -1,0 +1,445 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --ink: #172b3a;
+  --muted: #536879;
+  --subtle: #596d7c;
+  --line: #d9e4ea;
+  --surface: #ffffff;
+  --canvas: #f2f7f8;
+  --accent: #087e83;
+  --accent-dark: #075e63;
+  --focus: #1769aa;
+  --card-shadow: 0 2px 5px rgb(24 51 67 / 5%), 0 12px 28px rgb(24 51 67 / 6%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--canvas);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 12% 0%, rgb(8 126 131 / 9%), transparent 34rem),
+    var(--canvas);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: var(--accent-dark);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: #06484c;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.dashboard {
+  width: min(100% - 3rem, 1180px);
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 6vw, 5.5rem);
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(1.75rem, 4vw, 3rem);
+}
+
+.dashboard-intro {
+  max-width: 690px;
+}
+
+.dashboard-eyebrow {
+  margin: 0 0 0.65rem;
+  color: var(--accent-dark);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.dashboard-title {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 750;
+  letter-spacing: -0.055em;
+  line-height: 1.06;
+}
+
+.dashboard-description {
+  max-width: 58ch;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+}
+
+.dashboard-meta {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.dashboard-meta strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.project-grid,
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  margin: 0;
+  padding: clamp(1.25rem, 2.4vw, 1.75rem);
+  overflow-wrap: anywhere;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: 1.125rem;
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: #b9d1d8;
+  box-shadow: 0 5px 10px rgb(24 51 67 / 6%), 0 18px 36px rgb(24 51 67 / 10%);
+}
+
+.project-card:focus-within {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 2px rgb(23 105 170 / 20%), var(--card-shadow);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.project-card-title {
+  min-width: 0;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 720;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.project-card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card-title a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+.project-card-summary {
+  margin: 0.8rem 0 1.25rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.project-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.status-badge,
+.priority-badge {
+  display: inline-flex;
+  min-height: 1.75rem;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.015em;
+  line-height: 1.2;
+}
+
+.status-badge::before,
+.priority-badge::before {
+  display: inline-block;
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.status-badge {
+  color: #285b42;
+  background: #edf7f0;
+}
+
+.status-badge--active::before,
+.status-active::before,
+.status-badge[data-status="active"]::before {
+  content: "↗";
+}
+
+.status-badge--on-track,
+.status-on-track,
+.status-badge[data-status="on-track"] {
+  color: #285b42;
+  background: #edf7f0;
+}
+
+.status-badge--on-track::before,
+.status-on-track::before,
+.status-badge[data-status="on-track"]::before {
+  content: "✓";
+}
+
+.status-badge--at-risk,
+.status-at-risk,
+.status-badge[data-status="at-risk"] {
+  color: #714400;
+  background: #fff5dc;
+}
+
+.status-badge--at-risk::before,
+.status-at-risk::before,
+.status-badge[data-status="at-risk"]::before {
+  content: "!";
+}
+
+.status-badge--blocked,
+.status-blocked,
+.status-badge[data-status="blocked"] {
+  color: #8b3030;
+  background: #fff0ef;
+}
+
+.status-badge--blocked::before,
+.status-blocked::before,
+.status-badge[data-status="blocked"]::before {
+  content: "×";
+}
+
+.status-badge--complete,
+.status-complete,
+.status-badge[data-status="complete"] {
+  color: #285b42;
+  background: #edf7f0;
+}
+
+.status-badge--complete::before,
+.status-complete::before,
+.status-badge[data-status="complete"]::before {
+  content: "✓";
+}
+
+.status-badge--planned,
+.status-planned,
+.status-badge[data-status="planned"] {
+  color: #46566f;
+  background: #f0f3f8;
+}
+
+.status-badge--planned::before,
+.status-planned::before,
+.status-badge[data-status="planned"]::before {
+  content: "○";
+}
+
+.priority-badge {
+  color: #46566f;
+  background: #f4f6f9;
+}
+
+.priority-badge--high,
+.priority-high,
+.priority-badge[data-priority="high"] {
+  color: #8b3030;
+  background: #fff0ef;
+}
+
+.priority-badge--high::before,
+.priority-high::before,
+.priority-badge[data-priority="high"]::before {
+  content: "▲";
+}
+
+.priority-badge--medium,
+.priority-medium,
+.priority-badge[data-priority="medium"] {
+  color: #714400;
+  background: #fff5dc;
+}
+
+.priority-badge--medium::before,
+.priority-medium::before,
+.priority-badge[data-priority="medium"]::before {
+  content: "◆";
+}
+
+.priority-badge--low,
+.priority-low,
+.priority-badge[data-priority="low"] {
+  color: #46566f;
+  background: #f0f3f8;
+}
+
+.priority-badge--low::before,
+.priority-low::before,
+.priority-badge[data-priority="low"]::before {
+  content: "▼";
+}
+
+.project-card-details {
+  display: grid;
+  gap: 0.9rem;
+  margin: auto 0 0;
+  padding: 1.15rem 0 0;
+  border-top: 1px solid #e7edf0;
+}
+
+.project-card-detail {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 0.36fr) 1fr;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.project-card-detail dt {
+  color: var(--subtle);
+  font-weight: 650;
+}
+
+.project-card-detail dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--ink);
+  font-weight: 550;
+}
+
+.project-card-owner,
+.project-card-activity {
+  color: var(--ink);
+}
+
+.project-state,
+.project-card-empty,
+.dashboard-empty {
+  margin: 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px dashed #a9bdc7;
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 75%);
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .dashboard {
+    width: min(100% - 2rem, 600px);
+    padding-block: 2.25rem 3rem;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .project-grid,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .dashboard {
+    width: min(100% - 1.25rem, 600px);
+  }
+
+  .project-card {
+    padding: 1.1rem;
+  }
+
+  .project-card-header {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .project-card,
+  .project-state,
+  .status-badge,
+  .priority-badge,
+  .project-card-empty,
+  .dashboard-empty {
+    border: 1px solid CanvasText;
+  }
+
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}
